@@ -9,15 +9,19 @@ namespace BowlingApi.Controllers
     public class BowlingController : ControllerBase
     {
         private IBowlingRepository _bowlingRepository;
-        public BowlingController(IBowlingRepository temp) {
-            _bowlingRepository = temp;   
+
+        public BowlingController(IBowlingRepository bowlingRepository)
+        {
+            _bowlingRepository = bowlingRepository;
         }
 
+        
+        //Endpoint that is called by the front end
         [HttpGet]
-        public IEnumerable<Bowler> Get()
+        public IEnumerable<BowlerDto> GetBowlersWithTeam()
         {
-            var bowlerData = _bowlingRepository.Bowlers.ToArray();
-            return bowlerData;
+            var bowlersWithTeam = _bowlingRepository.GetAllBowlersWithTeam();
+            return bowlersWithTeam;
         }
 
 

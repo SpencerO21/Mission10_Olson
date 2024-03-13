@@ -1,6 +1,4 @@
-import { BowlerScore } from "./BowlerScore";
-import { Team } from "./Team";
-
+//This is the Bowler type that allows us to map the imported data
 export type Bowler = {
   bowlerId: number;
   bowlerLastName?: string;
@@ -12,6 +10,5 @@ export type Bowler = {
   bowlerZip?: string;
   bowlerPhoneNumber?: string;
   teamId?: number;
-  bowlerScores?: BowlerScore[];
-  team?: Team | null;
+  teamName: string;
 };

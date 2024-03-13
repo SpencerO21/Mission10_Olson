@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BowlingApi.Data;
 
@@ -23,9 +24,9 @@ public partial class Bowler
 
     public string? BowlerPhoneNumber { get; set; }
 
-    public int? TeamId { get; set; }
-
     public virtual ICollection<BowlerScore> BowlerScores { get; set; } = new List<BowlerScore>();
 
+    public int? TeamId { get; set; }
+    [ForeignKey("TeamId")]
     public virtual Team? Team { get; set; }
 }
